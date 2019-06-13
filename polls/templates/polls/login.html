@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Login Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+    </head>
+    <body>
+        <br>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">MY SITE</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/polls/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> About</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+        <h1>Welcome!</h1>
+        <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p}}  
+        <input type="submit" value="Login">
+        <input type="hidden" name="next" value="{{ next }}">
+        </form> 
+        </div>
+    </body>
+</html>
