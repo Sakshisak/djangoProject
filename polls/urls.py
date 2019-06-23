@@ -1,4 +1,5 @@
 from django.urls import path
+from django.conf.urls import include
 
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView
@@ -15,4 +16,5 @@ urlpatterns = [
     path('profile/', views.profile, name="profile" ),
     path('edit/', views.edit, name = 'edit'),
     path('pw_change/', views.pw_change, name = 'pw_change'),
+    path('search/', include('haystack.urls')),
 ]
